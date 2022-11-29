@@ -13,6 +13,7 @@
   "module": "jsx-runtime.mjs",
   "scripts": {
     "build": "rollup -c",
+    "prepare": "npm run build",
     "lint": "eslint ./lib/**",
     "test": "jest",
     "push": "npm run build && npm run test && npm publish",
