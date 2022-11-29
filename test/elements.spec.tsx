@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent, PropType, ref } from '@vue/composition-api'
 import { mount, shallowMount } from '@vue/test-utils'
+import { defineComponent, PropType, ref } from 'vue'
 
 it('Creating single element should work properly.', () => {
   const wrapper = shallowMount({

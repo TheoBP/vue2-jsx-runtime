@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent } from '@vue/composition-api'
 import { shallowMount } from '@vue/test-utils'
+import { defineComponent } from 'vue'
 
 describe('HTML testing.', () => {
   it('Separated event should work.', (done) => {

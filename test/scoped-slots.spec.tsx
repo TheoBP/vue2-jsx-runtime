@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent, PropType } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
+import { defineComponent, PropType } from 'vue'
 
 it('ScopedSlots should work properly.', () => {
   const Container = defineComponent({

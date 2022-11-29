@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent, PropType, ref } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
+import { defineComponent, PropType, ref } from 'vue'
 
 it('Props should work properly.', (done) => {
   const Example = defineComponent({

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineAsyncComponent, defineComponent } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
+import { defineAsyncComponent, defineComponent } from 'vue'
 import { sleep } from './utils/sleep'
 
 it('Async component should work properly.', async () => {

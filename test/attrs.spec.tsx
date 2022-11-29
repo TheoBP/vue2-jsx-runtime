@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 import { shallowMount } from '@vue/test-utils'
-import { defineComponent, nextTick, onMounted, PropType, ref } from '@vue/composition-api'
+import { defineComponent, nextTick, onMounted, PropType, ref } from 'vue'
 
 describe('HTML testing.', () => {
   it('It should deal with static attrs.', () => {

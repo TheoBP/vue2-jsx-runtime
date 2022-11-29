@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-import { defineComponent } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
+import { defineComponent } from 'vue'
 
 it('Slot should work properly.', () => {
   const Container = defineComponent({

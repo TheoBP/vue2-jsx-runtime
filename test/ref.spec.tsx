@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 
-import { ComponentPublicInstance, defineComponent } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
-import Vue from 'vue'
+import Vue, { ComponentPublicInstance, defineComponent } from 'vue'
 
 it('Ref should work properly.', (done) => {
   const Example = defineComponent({

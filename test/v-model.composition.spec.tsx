@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
-import { defineComponent, ref } from '@vue/composition-api'
 import { shallowMount } from '@vue/test-utils'
-import { sleep } from './utils/sleep'
+import { defineComponent, ref } from 'vue'
 import { getValueFromObject, setValueToObject } from '../lib/utils'
+import { sleep } from './utils/sleep'
 
 describe('v-model composition API testing.', () => {
   it('v-model on text input should work properly,', async () => {

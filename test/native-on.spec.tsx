@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
+import { defineComponent } from 'vue'
 
 it('Using native on should be fine.', (done) => {
   const ButtonComponent = defineComponent({

@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 
-import Vue from 'vue'
-import { defineComponent } from '@vue/composition-api'
 import { mount } from '@vue/test-utils'
+import Vue, { defineComponent } from 'vue'
 
 it('Mixing usage should work properly.', () => {
   Vue.component('example', Vue.extend({

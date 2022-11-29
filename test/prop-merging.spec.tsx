@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent, PropType } from '@vue/composition-api'
 import { shallowMount } from '@vue/test-utils'
+import { defineComponent, PropType } from 'vue'
 
 describe('Prop merging test.', () => {
   it('Merge props should work properly.', () => {

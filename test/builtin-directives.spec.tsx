@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 
-import { defineComponent, ref } from '@vue/composition-api'
 import { shallowMount } from '@vue/test-utils'
-import Vue from 'vue'
+import Vue, { defineComponent, ref } from 'vue'
 import { getDirectiveInfo } from '../lib/directives'
 import { sleep } from './utils/sleep'
 

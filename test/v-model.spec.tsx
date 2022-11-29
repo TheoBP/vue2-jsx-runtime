@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-import { defineComponent, ref } from '@vue/composition-api'
 import { shallowMount } from '@vue/test-utils'
+import { defineComponent, ref } from 'vue'
 import { sleep } from './utils/sleep'
 
 describe('v-model IME testing.', () => {

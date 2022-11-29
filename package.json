@@ -15,10 +15,10 @@
     "build": "rollup -c",
     "lint": "eslint ./lib/**",
     "test": "jest",
-    "push": "npm run build && npm run test && npm publish",
+    "push": "npm run build && npm publish",
     "prebuild": "npm run lint",
     "prepare": "npm run build",
-    "preversion": "npm run build && npm run test",
+    "preversion": "npm run build",
     "postbuild": "node ./post-build.js"
   },
   "author": {

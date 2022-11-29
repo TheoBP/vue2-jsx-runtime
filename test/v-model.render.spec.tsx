@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
 
 import { mount, shallowMount } from '@vue/test-utils'
+import Vue, { defineComponent, ref } from 'vue'
 import { sleep } from './utils/sleep'
-import Vue from 'vue'
-import { defineComponent, ref } from '@vue/composition-api'
 
 describe('v-model render function testing.', () => {
   it('v-model on text input should work properly,', async () => {
