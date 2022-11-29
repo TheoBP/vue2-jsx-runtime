@@ -21,7 +21,7 @@ const checkIsVHTML = (key: string): key is 'v-html' | 'vHtml' => /^v(-h|H)tml$/.
  */
 const getDirectiveInfo = (key: string) => {
   key = key.replace(/^v-?/, '') // xxx-xxx, xxxXxx:a.b.c
-  const [name, args] = key.split(':') // ['xxx-xxx', 'a.b.c']
+  const [name, args] = key.split(/[_:]+/) // ['xxx-xxx', 'a.b.c']
 
   // ['a', ['b', 'c']]
   const [argument, ...modifierList] = isString(args) ? args.split('.') : []
