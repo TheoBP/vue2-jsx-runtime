@@ -1,5 +1,4 @@
-import type { VNodeChildren, VNodeData, VNodeDirective } from 'vue'
-import type { Ref } from '@vue/composition-api'
+import type { VNodeChildren, VNodeData, VNodeDirective, Ref } from 'vue'
 import { paramCase } from 'change-case'
 import { isString } from '../utils'
 import { dealWithVModel } from './v-model'

@@ -1,6 +1,5 @@
-import { checkIsRefObj, getValueFromObject, isArray, isString, isUndefined, setValueToObject } from '../utils'
-import type { Ref } from '@vue/composition-api'
-import type { VNodeData } from 'vue'
+import { checkIsRefObj, getValueFromObject, isArray, isObject, isString, isUndefined, setValueToObject } from '../utils'
+import type { VNodeData, Ref } from 'vue'
 import { ConfigType, TagType } from '../type'
 import { getCurrentInstance } from '../runtime'
 
@@ -10,7 +9,8 @@ type vModelBinding =
   string | Ref<unknown> |
   [string | Ref<unknown>] |
   [string | Ref<unknown>, string[]] |
-  [string | Ref<unknown>, string, string[]]
+  [string | Ref<unknown>, string, string[]] |
+  unknown
 
 const dealWithVModel = (
   tag: TagType,
@@ -19,11 +19,11 @@ const dealWithVModel = (
   vNodeData: VNodeData,
   isHTMLElement: boolean
 ) => {
-  let bindingKeyPathOrRef: string | Ref<unknown>
+  let bindingKeyPathOrRef: string | Ref<unknown> | unknown
   let argument: string | undefined
   let modifiers: string[] = []
 
-  if (isString(bindingExpression) || checkIsRefObj(bindingExpression)) {
+  if (isString(bindingExpression) || checkIsRefObj(bindingExpression) || isObject(bindingExpression)) {
     bindingKeyPathOrRef = bindingExpression
   } else if (isArray(bindingExpression)) {
     bindingKeyPathOrRef = bindingExpression[0]
@@ -46,24 +46,32 @@ const dealWithVModel = (
       return getValueFromObject(instance, bindingKeyPathOrRef)
     }
 
-    // v-model={[xxRef, 'a.b.c']}
-    if (argument) {
-      return getValueFromObject(bindingKeyPathOrRef.value, argument)
+    if (checkIsRefObj(bindingKeyPathOrRef)) {
+      // v-model={[xxRef, 'a.b.c']}
+      if (argument) {
+        return getValueFromObject(bindingKeyPathOrRef.value, argument)
+      }
+
+      return bindingKeyPathOrRef.value
     }
 
     // v-model={xxRef}
-    return bindingKeyPathOrRef.value
+    return bindingKeyPathOrRef
   }
 
   const emitValue = (payload: unknown) => {
     if (isString(bindingKeyPathOrRef)) {
       setValueToObject(instance, bindingKeyPathOrRef, payload)
       // Vue.set(instance, bindingKeyPathOrRef, payload)
-    } else if (argument) {
-      setValueToObject(bindingKeyPathOrRef.value, argument, payload)
-      // Vue.set(bindingKeyPathOrRef.value as any, argument, payload)
+    } else if (checkIsRefObj(bindingKeyPathOrRef)) {
+      if (argument) {
+        setValueToObject(bindingKeyPathOrRef.value, argument, payload)
+        // Vue.set(bindingKeyPathOrRef.value as any, argument, payload)
+      } else {
+        bindingKeyPathOrRef.value = payload
+      }
     } else {
-      bindingKeyPathOrRef.value = payload
+      bindingKeyPathOrRef = payload
     }
   }
 
