@@ -71,6 +71,7 @@ const dealWithVModel = (
         bindingKeyPathOrRef.value = payload
       }
     } else {
+      console.log(payload)
       bindingKeyPathOrRef = payload
     }
   }
