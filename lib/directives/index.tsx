@@ -34,6 +34,8 @@ const getDirectiveInfo = (key: string) => {
     })
   }
 
+  console.log(modifiers)
+
   return {
     name: paramCase(name),
     argument,
